@@ -5,5 +5,6 @@ import { Signaldemo } from './Components/signaldemo/signaldemo';
 
 export const routes: Routes = [
     { path: '', component: Parentdemo },
-    { path: 'signal',component: Signaldemo}
+    { path: 'signal',component: Signaldemo},
+    { path: 'reactive-forms', loadComponent: () => import('./Components/reactive-forms/reactive-forms').then(m => m.ReactiveForms) }
 ];
