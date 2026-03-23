@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-childdemo',
@@ -6,7 +6,7 @@ import { AfterContentChecked, AfterContentInit, Component, Input, OnChanges, OnI
   templateUrl: './childdemo.html',
   styleUrl: './childdemo.scss',
 })
-export class Childdemo implements OnChanges, OnInit, AfterContentInit, AfterContentChecked {
+export class Childdemo implements OnChanges, OnInit, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked{
   @Input() message: string= '';
 
   constructor() {
@@ -31,5 +31,14 @@ export class Childdemo implements OnChanges, OnInit, AfterContentInit, AfterCont
     console.log('🔄 Content Checked (AGAIN & AGAIN)');
     console.log('Current Message:', this.message);
   }
+
+  ngAfterViewInit() {
+    console.log('✅ View Initialized (ONLY ONCE)');
+  }
+
+  ngAfterViewChecked() {
+    console.log('🔄 View Checked (AGAIN & AGAIN)');
+  }
+
 
 }

@@ -1,3 +1,6 @@
 <p>parentdemo works!</p>
 <app-childdemo [message]="message"><p>{{message}}</p></app-childdemo>
+
+
+<input type="text" [(ngModel)]="message" placeholder="Type a message for child" />
 <button (click)="changeMessage()">Change Message</button>
