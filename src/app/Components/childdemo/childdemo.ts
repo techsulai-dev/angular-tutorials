@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-childdemo',
@@ -6,8 +6,8 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
   templateUrl: './childdemo.html',
   styleUrl: './childdemo.scss',
 })
-export class Childdemo implements OnChanges, OnInit{
-  @Input() message: string []= [];
+export class Childdemo implements OnChanges, OnInit, AfterContentInit, AfterContentChecked {
+  @Input() message: string= '';
 
   constructor() {
     console.log('Child Component Initialized with message:', this.message);
@@ -22,5 +22,14 @@ export class Childdemo implements OnChanges, OnInit{
   ngOnInit() {
     console.log('Child Component OnInit with message:', this.message);
   } 
+
+   ngAfterContentInit() {
+    console.log('✅ Content Initialized (ONLY ONCE)');
+  }
+
+  ngAfterContentChecked() {
+    console.log('🔄 Content Checked (AGAIN & AGAIN)');
+    console.log('Current Message:', this.message);
+  }
 
 }

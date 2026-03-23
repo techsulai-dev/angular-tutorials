@@ -1,2 +1,3 @@
 <p>parentdemo works!</p>
-<app-childdemo [message]="message"></app-childdemo>
+<app-childdemo [message]="message"><p>{{message}}</p></app-childdemo>
+<button (click)="changeMessage()">Change Message</button>

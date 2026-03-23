@@ -8,5 +8,11 @@ import { Childdemo } from "../childdemo/childdemo";
   styleUrl: './parentdemo.scss',
 })
 export class Parentdemo {
-  message: string[] = ['Hello from Parent!'];
+  message: string = 'Hello from Parent!';
+
+  changeMessage(){
+    this.message = 'updated';
+  }
+
+     
 }
