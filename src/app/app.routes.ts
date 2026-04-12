@@ -9,9 +9,9 @@ import { Home } from './Pages/home/home';
 // import { Form } from './Components/form/form';
 
 export const routes: Routes = [
-    { path: '', component: Home },
+{ path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: 'home', component: Home, pathMatch: 'full' },
     { path: 'parent', component: Parentdemo },
-    // { path: '', component: Home },
     { path: 'signal',component: Signaldemo},
     { path: 'reactive-forms', loadComponent: () => import('./Components/reactive-forms/reactive-forms').then(m => m.ReactiveForms) },
    // { path: 'ngdocheckdemo', loadComponent: () => import('./Components/ngdocheckdemo/ngdocheckdemo').then(m => m.Ngdocheckdemo) }
